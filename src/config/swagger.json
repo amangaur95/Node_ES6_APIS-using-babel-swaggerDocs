@@ -1,0 +1,21 @@
+{
+    "swagger": "2.0",
+    "title" : "Rk_Music Api Documentation",
+    "description" : "MUSIC API Using Mongodb ES6",
+    "license": {
+        "name": "MIT",
+        "url": "https://opensource.org/licenses/MIT"
+      },
+      "version": "1.0.0",
+      "host": "localhost:3000",
+      "basePath": "/api",
+      "tags": [
+        {
+          "name": "Songs",
+          "description": "API for Songs Endpoints"
+        }
+      ],
+      "schemes": ["http"],
+      "consumes": ["application/json"],
+      "produces": ["application/json"]
+}
