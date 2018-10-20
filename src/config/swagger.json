@@ -67,6 +67,73 @@
           "200": {
             "description": "ALl the songs",
             "schema": {
+              "$ref": "#definitions/Songs"
+            }
+          }
+        }
+      }
+    },
+    "/songs/{id}":{
+      "parameters":[
+      {
+        "name":"id",
+        "in":"path",
+        "required":"true",
+        "description":"id of song",
+        "type":"string"
+      }
+      ],
+      "get":{
+        "tags": ["Songs"],
+        "summary": "Api Endpoint for find single Songs",
+        "description": "Fetching one Song from database",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Song is found",
+            "schema": {
+              "$ref": "#definitions/Song"
+            }
+          }
+        }
+      },
+      "delete":{
+        "tags": ["Songs"],
+        "summary": "Api Endpoint for delete single Songs",
+        "description": "Fetching one Song and delteing from database",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Song is Deleted",
+            "schema": {
+              "$ref": "#definitions/Song"
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": ["Songs"],
+        "summary": "Api Endpoint for updating existing Song",
+        "description": "Update existing Song in database",
+        "parameters": [{
+          "name": "song",
+          "description": "Song prams to update existing song",
+          "in": "body",
+          "schema": {
+            "$ref": "#definitions/UpdateSong"
+          }
+        }],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Song is Updated",
+            "schema": {
               "$ref": "#definitions/Song"
             }
           }
@@ -77,6 +144,23 @@
   "definitions": {
     "Song": {
       "required": ["title", "url"],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        },
+        "rating": {
+          "type": "integer",
+          "format": "Int32"
+        }
+      }
+    },
+    "UpdateSong":{
       "properties": {
         "id": {
           "type": "string"
