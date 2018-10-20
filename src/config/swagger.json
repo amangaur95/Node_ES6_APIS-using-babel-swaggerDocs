@@ -1,21 +1,68 @@
 {
-    "swagger": "2.0",
-    "title" : "Rk_Music Api Documentation",
-    "description" : "MUSIC API Using Mongodb ES6",
-    "license": {
-        "name": "MIT",
-        "url": "https://opensource.org/licenses/MIT"
-      },
-      "version": "1.0.0",
-      "host": "localhost:3000",
-      "basePath": "/api",
-      "tags": [
-        {
-          "name": "Songs",
-          "description": "API for Songs Endpoints"
+  "swagger": "2.0",
+  "title": "Rk_Music API Documentation",
+  "description": "MUSIC API",
+  "license": {
+    "name": "MIT",
+    "url": "https://opensource.org/licenses/MIT"
+  },
+  "version": "1.0.0",
+  "host": "localhost:8000",
+  "basePath": "/api",
+  "tags": [{
+    "name": "Songs",
+    "description": "API for Songs Endpoints"
+  }],
+  "schemes": ["http"],
+  "consumes": ["application/json"],
+  "produces": ["application/json"],
+  "paths": {
+    "/songs": {
+      "post": {
+        "tags": ["Songs"],
+        "summary": "Api Endpoint for create Song",
+        "description": "Create new Song in database",
+        "parameters": [{
+          "name": "song",
+          "description": "Song prams to create new song",
+          "in": "body",
+          "required": "true",
+          "schema": {
+            "$ref": "#definitions/Song"
+          }
+        }],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "new song created",
+            "schema": {
+              "$ref": "#definitions/Song"
+            }
+          }
         }
-      ],
-      "schemes": ["http"],
-      "consumes": ["application/json"],
-      "produces": ["application/json"]
+      }
+    }
+  },
+  "definitions": {
+    "Song": {
+      "required": ["title", "url"],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        },
+        "rating": {
+          "type": "integer",
+          "format": "Int32"
+        }
+      }
+    }
+  }
 }

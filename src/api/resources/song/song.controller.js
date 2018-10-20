@@ -4,7 +4,7 @@ export default {
     async create(req, res) {
         try {
             const schema = joi.object().keys({
-                tittle: joi.string().required(),
+                title: joi.string().required(),
                 url: joi.string().required(),
                 rating: joi.number().integer().min(0).max(5).optional(),
             });
@@ -64,7 +64,7 @@ export default {
         try {
             const { id } = req.params;
             const schema = joi.object().keys({
-            tittle: joi.string().required(),
+            title: joi.string().required(),
             url : joi.string().required(),
             rating : joi.number().integer().min(0).max(5).optional(),
             });

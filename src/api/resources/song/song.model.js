@@ -2,9 +2,9 @@ import mongoose from 'mongoose';
 import mongoosePaginate from 'mongoose-paginate'
 const { Schema } = mongoose;
 const songSchema = new Schema({
-    tittle: {
+    title: {
         type: String,
-        required: [true, 'SOng must have tittle'],
+        required: [true, 'SOng must have title'],
     },
     url: {
         type: String,
