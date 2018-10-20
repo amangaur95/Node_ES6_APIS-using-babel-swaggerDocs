@@ -12,6 +12,7 @@
   "author": "Rajneesh",
   "license": "ISC",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "express": "^4.16.3",
     "joi": "^14.0.0",
     "mongoose": "^5.3.4",
