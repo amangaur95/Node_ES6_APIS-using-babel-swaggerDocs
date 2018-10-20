@@ -42,6 +42,35 @@
             }
           }
         }
+      },
+      "get": {
+        "tags": ["Songs"],
+        "summary": "Api Endpoint for ALL Songs",
+        "description": "Fetching all Song from database",
+        "parameters": [{
+          "name": "page",
+          "type":"integer",
+          "description": "Define Page index for the record",
+          "in": "query"
+        },
+        {
+          "name": "perPage",
+          "type":"integer",
+          "description": "Define limit for the records e.g 10",
+          "in": "query"
+        }
+      ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "ALl the songs",
+            "schema": {
+              "$ref": "#definitions/Song"
+            }
+          }
+        }
       }
     }
   },
@@ -61,6 +90,28 @@
         "rating": {
           "type": "integer",
           "format": "Int32"
+        }
+      }
+    },
+    "Songs": {
+      "properties": {
+        "docs": {
+          "type": "array",
+          "items":{
+          "$ref":"#definitions/Song"
+          }
+        },
+        "total": {
+          "type": "integer"
+        },
+        "pages": {
+          "type": "integer"
+        },
+        "limit": {
+          "type": "integer"
+        },
+        "page":{
+          "type":"integer"
         }
       }
     }
