@@ -50,13 +50,15 @@ export default {
             const token = jwt.issue({
                 _id: user._id
             }, '1d');
-            return res.status(200).json({token : token});
+            return res.status(200).json({
+                token: token
+            });
         } catch (err) {
             console.log(err);
             return res.status(500).json(err);
         }
     },
-    auth(req,res){
-        return  res.json(req.user);
+    auth(req, res) {
+        return res.json(req.user);
     }
 }

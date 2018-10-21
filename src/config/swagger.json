@@ -16,6 +16,10 @@
     {
       "name": "Users",
       "description": "API for Users Endpoints"
+    },
+    {
+      "name": "Playlists",
+      "description": "Api for Playlist Endpoints"
     }
   ],
   "schemes": ["http"],
@@ -76,6 +80,67 @@
         }
       }
     },
+    "/playlist": {
+      "post": {
+        "tags": ["PlayLists"],
+        "summary": "Api Endpoint for create playlist",
+        "description": "Add new songs in the PlayList",
+        "parameters": [{
+            "name": "playlist",
+            "description": "Songs that user want to add in the PlayList",
+            "in": "body",
+            "required": "true",
+            "schema": {
+              "$ref": "#definitions/PlayList"
+            }
+          },
+          {
+            "name": "authorization",
+            "description": "Access token to authorization of user",
+            "in": "header",
+            "type": "string",
+            "required": "true"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "new PlayList is created",
+            "schema": {
+              "$ref": "#definitions/Playlist"
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": ["PlayLists"],
+        "summary": "Find all the PlayList with Songs",
+        "description": "View all the Songs in the PlayList",
+        "parameters": [
+          {
+            "name": "authorization",
+            "description": "Access token to authorization of user",
+            "in": "header",
+            "type": "string",
+            "required": "true"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "View all the PlayList",
+            "schema": {
+              "$ref": "#definitions/PlayLists"
+            }
+          }
+        }
+      }
+    },
+
     "/songs": {
       "post": {
         "tags": ["Songs"],
@@ -240,8 +305,8 @@
         "password": {
           "type": "string"
         },
-        "role":{
-          "type":"number"
+        "role": {
+          "type": "number"
         }
       }
     },
@@ -325,6 +390,63 @@
         "page": {
           "type": "integer"
         }
+      }
+    },
+    "PlayList": {
+      "required": ["name"],
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "uniqueItems": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "songs": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+
+      }
+    },
+    "PlayListRes": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "uniqueItems": true
+        },
+        "name": {
+          "type": "string"
+        },
+        "songs": {
+          "type": "array",
+          "items": {
+            "$ref": "#definitions/Song"
+          }
+        },
+        "user": {
+          "$ref": "#definitions/userCustomRes"
+        }
+      }
+    },
+    "userCustomRes": {
+      "properties": {
+        "fisrtName": {
+          "type": "string"
+        },
+        "lastName": {
+          "type": "string"
+        }
+      }
+    },
+    "PlayLists": {
+      "type": "array",
+      "items": {
+        "$ref": "#definitions/PlayListRes"
       }
     }
   }
