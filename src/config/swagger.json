@@ -239,6 +239,9 @@
         },
         "password": {
           "type": "string"
+        },
+        "role":{
+          "type":"number"
         }
       }
     },

@@ -15,7 +15,8 @@ export default {
                 email: value.email,
                 firstName: value.firstName,
                 lastName: value.lastName,
-                password: encryptedPass
+                password: encryptedPass,
+                role: value.role
             });
             return res.status(200).json({
                 sucess: true
