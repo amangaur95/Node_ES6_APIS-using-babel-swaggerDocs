@@ -22,7 +22,7 @@ app.use(passport.initialize());
 configJWTStrategy();
 
 //swagger
-app.use('/api-docs',swaggerUi.serve, swaggerUi.setup(swaggerDocument ,{explorer :true}));
+app.use('/',swaggerUi.serve, swaggerUi.setup(swaggerDocument ,{explorer :true}));
  app.use((req, res, next) => {
     const error = new Error('Not found');
     error.message = 'Invalid route';

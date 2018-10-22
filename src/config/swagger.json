@@ -7,7 +7,7 @@
     "url": "https://opensource.org/licenses/MIT"
   },
   "version": "1.0.0",
-  "host": "localhost:8000",
+  "host": "boiling-headland-59043.herokuapp.com",
   "basePath": "/api",
   "tags": [{
       "name": "Songs",
@@ -22,7 +22,7 @@
       "description": "Api for Playlist Endpoints"
     }
   ],
-  "schemes": ["http"],
+  "schemes": ["http","https"],
   "consumes": ["application/json"],
   "produces": ["application/json"],
   "paths": {
