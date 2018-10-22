@@ -1,4 +1,5 @@
 import mongoose from 'mongoose';
+import { getConfig } from './config';
 mongoose.Promise = global.Promise;
-
-export const connect = ( ) => mongoose.connect('mongodb://localhost/rkmusic_api',{ useNewUrlParser: true });
+const config = getConfig(process.env.NODE_ENV);
+export const connect = ( ) => mongoose.connect(config.MONGO_URI ,{ useNewUrlParser: true });
