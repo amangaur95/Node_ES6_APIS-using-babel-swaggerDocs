@@ -8,7 +8,7 @@ import swaggerDocument from './config/swagger.json';
 import { configJWTStrategy } from './api/middelwares/passport-jwt';
 const app = express();
 
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 8000;
 //mongodb
 connect();
 
@@ -39,6 +39,6 @@ app.use('/api-docs',swaggerUi.serve, swaggerUi.setup(swaggerDocument ,{explorer 
     });
   });
   
-  app.listen(process.env.PORT, () => {
+  app.listen(PORT, () => {
     console.log(`Server is running at PORT http://localhost:${PORT}`);
   });
