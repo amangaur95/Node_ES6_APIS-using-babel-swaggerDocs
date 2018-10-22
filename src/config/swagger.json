@@ -18,7 +18,7 @@
       "description": "API for Users Endpoints"
     },
     {
-      "name": "Playlists",
+      "name": "PlayLists",
       "description": "Api for Playlist Endpoints"
     }
   ],
