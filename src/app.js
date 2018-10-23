@@ -1,4 +1,5 @@
 import express from 'express';
+import cors from 'cors';
 import logger from 'morgan';
 import passport from 'passport';
 import swaggerUi from 'swagger-ui-express';
@@ -7,7 +8,8 @@ import { restRouter } from './api';
 import swaggerDocument from './config/swagger.json';
 import { configJWTStrategy } from './api/middelwares/passport-jwt';
 const app = express();
-
+app.use(cors());
+ 
 const PORT = process.env.PORT || 8000;
 //mongodb
 connect();

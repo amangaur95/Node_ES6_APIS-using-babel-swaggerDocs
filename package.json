@@ -6,15 +6,15 @@
   "scripts": {
     "dev": "nodemon src/app.js --exec babel-node --presets env",
     "build": "babel src -d dist --source-maps inline --copy-files",
-    "heroku-postbuid":"npm install",
-    "start":"babel-node src/app.js"
- 
+    "heroku-postbuid": "npm install",
+    "start": "babel-node src/app.js"
   },
   "keywords": [],
   "author": "Rajneesh",
   "license": "ISC",
   "dependencies": {
     "bcryptjs": "^2.4.3",
+    "cors": "^2.8.4",
     "express": "^4.16.3",
     "joi": "^14.0.0",
     "jsonwebtoken": "^8.3.0",
