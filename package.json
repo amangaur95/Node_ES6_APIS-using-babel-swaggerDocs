@@ -3,6 +3,11 @@
   "version": "1.0.0",
   "description": "it is the node application using es6 to make restfull apis using mongoose express ",
   "main": "app.js",
+  "engines": {
+    "node": "8.12.0",
+    "npm": "6.4.1"
+  },
+
   "scripts": {
     "dev": "nodemon src/app.js --exec babel-node --presets env",
     "build": "babel src -d dist --source-maps inline --copy-files",
