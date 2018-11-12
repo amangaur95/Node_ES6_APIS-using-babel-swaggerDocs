@@ -18,7 +18,7 @@ app.use(express.json());
 app.use(express.urlencoded({extended :true }));
 app.use(logger('dev'));
 app.use('/api',restRouter);
-
+console.log('done');
 //passport
 app.use(passport.initialize());
 configJWTStrategy();
